@@ -204,9 +204,3 @@ As páginas ficam em `src/main/resources/static/` e são servidas pelo próprio 
 
 - Sem autenticação, cada clique em voto registra um novo voto.
 - O Hibernate usa `ddl-auto=update`, adequado para desenvolvimento. Em produção, prefira `validate` com migrations.
-
-## 👤 Autor
-
-Desenvolvido por **SEU NOME** como projeto acadêmico.
-
-[![GitHub](https://img.shields.io/badge/GitHub-SEU--USUARIO-181717?logo=github)](https://github.com/SEU-USUARIO)
