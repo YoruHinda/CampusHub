@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Comunidade — CampusHub</title>
+
+    <link rel="stylesheet" href="/css/community.css">
+    <link rel="stylesheet" href="/css/extras.css">
+    <script src="/js/api.js" defer></script>
+    <script src="/js/community.js" defer></script>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <a class="back-link" href="/index.html">
+    <span class="back-arrow">←</span> Voltar ao início
+</a>
+
+        <!-- Cabeçalho da comunidade -->
+        <section class="community-header">
+
+            <div class="community-cover"></div>
+
+            <div class="community-info">
+
+                <div class="community-heading">
+
+                    <div class="community-identity">
+                        <div class="community-avatar" id="community-avatar"></div>
+
+                        <div>
+                            <span class="community-category" id="community-category"></span>
+                            <h1 id="community-name"></h1>
+                        </div>
+                    </div>
+
+                    <button id="join-community" class="join-button" type="button">
+                        Entrar na comunidade
+                    </button>
+
+                </div>
+
+                <p id="community-description"></p>
+
+                <div class="community-metadata">
+                    <span id="community-members"></span>
+                    <span id="community-created"></span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Conteúdo -->
+        <div class="community-layout">
+
+            <section class="community-main">
+
+                <div class="posts-toolbar">
+
+                    <div class="posts-tabs">
+                        <button class="tab-button active" data-sort="recent" type="button">
+                            Recentes
+                        </button>
+
+                        <button class="tab-button" data-sort="popular" type="button">
+                            Populares
+                        </button>
+                    </div>
+
+                    <div class="posts-actions">
+                        <input
+                            type="search"
+                            id="post-search"
+                            placeholder="Pesquisar publicações..."
+                        >
+
+                        <button id="create-post" type="button">
+                            + Criar publicação
+                        </button>
+                    </div>
+
+                </div>
+
+                <section class="pinned-section" id="pinned-section">
+
+                    <div class="section-heading">
+                        <h2>Publicações fixadas</h2>
+                    </div>
+
+                    <div id="pinned-posts" class="posts-list"></div>
+
+                </section>
+
+                <section class="recent-section">
+
+                    <div class="section-heading">
+                        <h2>Publicações</h2>
+                    </div>
+
+                    <div id="community-posts" class="posts-list"></div>
+
+                    <div id="posts-empty" class="empty-state" hidden>
+                        <h3>Nenhuma publicação encontrada</h3>
+                        <p>Esta comunidade ainda não possui publicações.</p>
+                    </div>
+
+                </section>
+
+            </section>
+
+            <aside class="community-sidebar">
+
+                <section class="sidebar-card">
+
+                    <h2>Sobre a comunidade</h2>
+
+                    <p id="sidebar-description"></p>
+
+                    <div class="sidebar-divider"></div>
+
+                    <div class="sidebar-stat">
+                        <span>Membros</span>
+                        <strong id="sidebar-members"></strong>
+                    </div>
+
+                    <div class="sidebar-stat">
+                        <span>Online</span>
+                        <strong id="sidebar-online"></strong>
+                    </div>
+
+                    <div class="sidebar-stat">
+                        <span>Publicações</span>
+                        <strong id="sidebar-post-count"></strong>
+                    </div>
+
+                </section>
+
+                <section class="sidebar-card community-rules" id="rules-card">
+
+                    <h2>Regras da comunidade</h2>
+
+                    <ol id="community-rules"></ol>
+
+                </section>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+    <!-- Modal: criar publicação -->
+    <div class="ch-modal-bg" id="post-modal" role="dialog" aria-modal="true" aria-labelledby="post-modal-title">
+        <div class="ch-modal">
+            <div class="ch-modal-head">
+                <h2 id="post-modal-title">Criar publicação</h2>
+                <button type="button" class="ch-modal-close" id="post-modal-close" aria-label="Fechar">×</button>
+            </div>
+            <form id="post-form">
+                <label for="post-title-input">Título</label>
+                <input id="post-title-input" required maxlength="200" placeholder="Dê um título para sua publicação">
+
+                <label for="post-body-input">Texto</label>
+                <textarea id="post-body-input" required rows="6"
+                    placeholder="Escreva sua dúvida, ideia ou contribuição..."></textarea>
+
+                <div class="ch-modal-actions">
+                    <button type="button" id="post-modal-cancel">Cancelar</button>
+                    <button type="submit">Publicar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

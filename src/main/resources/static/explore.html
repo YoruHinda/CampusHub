@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Explorar comunidades</title>
+
+    <link rel="stylesheet" href="/css/explore.css">
+<link rel="stylesheet" href="/css/extras.css">
+<script src="/js/api.js" defer></script>
+<script src="/js/explore.js" defer></script>
+</head>
+
+<body>
+    <nav class="navbar">
+    <div class="navbar-container">
+
+        <a href="/index.html" class="navbar-brand">
+            Campus<span>Hub</span>
+        </a>
+
+        <div class="navbar-links">
+            <a href="/index.html">Início</a>
+            <a href="/explore.html">Explorar</a>
+        </div>
+
+    </div>
+</nav>
+    <main class="container">
+
+        <!-- Cabeçalho -->
+        <section class="explore-header">
+
+            <div class="header-content">
+                <span class="eyebrow">DESCUBRA NOVOS ESPAÇOS</span>
+
+                <h1>Explore comunidades</h1>
+
+                <p>
+                    Encontre comunidades, compartilhe ideias e participe
+                    de conversas sobre assuntos que você gosta.
+                </p>
+            </div>
+
+            <div class="header-decoration">
+                <div class="decoration-circle"></div>
+            </div>
+
+        </section>
+
+        <!-- Pesquisa -->
+        <section class="search-section">
+
+            <div class="search-box">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+
+                <input
+                    type="search"
+                    id="community-search"
+                    placeholder="Pesquise por comunidades..."
+                    autocomplete="off"
+                >
+
+                <button id="search-button" type="button">
+                    Pesquisar
+                </button>
+            </div>
+
+        </section>
+
+        <!-- Categorias -->
+        <section class="categories-section">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Categorias</h2>
+                    <p>Explore comunidades por assunto.</p>
+                </div>
+            </div>
+
+            <div class="categories-list" id="categories-list">
+
+                <!-- Categorias carregadas pelo JavaScript -->
+
+            </div>
+
+        </section>
+
+        <!-- Comunidades -->
+        <section class="communities-section">
+
+            <div class="communities-heading">
+
+                <div>
+                    <h2>Comunidades</h2>
+                    <p id="communities-description">
+                        Descubra comunidades disponíveis na plataforma.
+                    </p>
+                </div>
+
+                <select id="community-sort" aria-label="Ordenar comunidades">
+                    <option value="popular">Mais populares</option>
+                    <option value="recent">Mais recentes</option>
+                    <option value="name">Ordem alfabética</option>
+                </select>
+
+            </div>
+
+            <!-- Grid de comunidades -->
+            <div class="communities-grid" id="communities-grid">
+
+                <!-- Comunidades carregadas pelo JavaScript -->
+
+            </div>
+
+            <!-- Estado vazio -->
+            <div class="empty-state" id="empty-state" hidden>
+                <div class="empty-icon">⌕</div>
+                <h3>Nenhuma comunidade encontrada</h3>
+                <p>Tente pesquisar por outro nome ou categoria.</p>
+            </div>
+
+            <!-- Carregamento -->
+            <div class="loading-state" id="loading-state" hidden>
+                <span>Carregando comunidades...</span>
+            </div>
+
+            <!-- Paginação -->
+            <div class="pagination" id="pagination">
+
+                <button id="previous-page" type="button" disabled>
+                    Anterior
+                </button>
+
+                <span id="page-indicator"></span>
+
+                <button id="next-page" type="button">
+                    Próxima
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Publicação — CampusHub</title>
+
+    <link rel="stylesheet" href="/css/post.css">
+    <link rel="stylesheet" href="/css/extras.css">
+    <script src="/js/api.js" defer></script>
+    <script src="/js/post.js" defer></script>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <p><a href="/index.html">← Voltar ao início</a></p>
+
+        <div class="post-layout">
+
+            <section class="main-content">
+
+                <article class="post-card">
+                    <div class="post-community" id="post-community"></div>
+                    <div class="post-author" id="post-author"></div>
+                    <h1 id="post-title"></h1>
+                    <div class="post-content" id="post-content"></div>
+                    <div class="post-tags" id="post-tags"></div>
+                    <div class="post-actions">
+                        <span id="post-votes"></span>
+                    </div>
+                </article>
+
+                <section class="comments-card">
+                    <div class="comments-header">
+                        <h2>Comentários</h2>
+                        <span id="comments-count"></span>
+                    </div>
+
+                    <form id="comment-form" class="comment-form">
+                        <textarea id="comment-content" placeholder="Escreva seu comentário..." rows="4"
+                            required></textarea>
+                        <button type="submit">Enviar comentário</button>
+                    </form>
+
+                    <div id="comment-list" class="comment-list">
+                        <p id="empty-comments">Nenhum comentário encontrado.</p>
+                    </div>
+                </section>
+
+            </section>
+
+            <aside class="sidebar">
+                <section class="sidebar-card">
+                    <h3>Sobre a comunidade</h3>
+                    <p id="community-description"></p>
+                    <div class="community-stats">
+                        <div>
+                            <strong id="community-members">0</strong>
+                            <span>Publicações</span>
+                        </div>
+
+                        <div>
+                            <strong id="community-online">0</strong>
+                            <span>Criada em</span>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

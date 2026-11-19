@@ -1,0 +1,303 @@
+
+/* ========================================
+   CONFIGURAÇÕES GERAIS
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #3568e8;
+    --primary-hover: #2854c7;
+    --background: #f4f6fa;
+    --surface: #ffffff;
+    --border: #e7eaf0;
+    --text: #202735;
+    --text-secondary: #788292;
+    --radius: 12px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+button,
+textarea {
+    font: inherit;
+}
+
+/* ========================================
+   CONTAINER
+======================================== */
+
+.container {
+    width: min(1200px, calc(100% - 40px));
+    margin: 40px auto;
+}
+
+.post-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 290px;
+    gap: 24px;
+    align-items: start;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+}
+
+/* ========================================
+   PUBLICAÇÃO
+======================================== */
+
+.post-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: 0 2px 8px rgba(20, 35, 60, 0.03);
+}
+
+.post-community {
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.post-author {
+    color: var(--text-secondary);
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+#post-title {
+    color: var(--text);
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 20px;
+    overflow-wrap: anywhere;
+}
+
+.post-content {
+    color: #465164;
+    font-size: 15px;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    margin-bottom: 24px;
+}
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.post-tags span {
+    background: #edf2ff;
+    color: var(--primary);
+    padding: 5px 11px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.post-actions {
+    border-top: 1px solid var(--border);
+    padding-top: 18px;
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+/* ========================================
+   COMENTÁRIOS
+======================================== */
+
+.comments-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 26px;
+    box-shadow: 0 2px 8px rgba(20, 35, 60, 0.03);
+}
+
+.comments-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.comments-header h2 {
+    font-size: 19px;
+    font-weight: 700;
+}
+
+#comments-count {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+/* Formulário */
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    min-height: 110px;
+    resize: vertical;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    outline: none;
+    background: #fafbfc;
+    color: var(--text);
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.comment-form textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(53, 104, 232, 0.1);
+}
+
+.comment-form textarea::placeholder {
+    color: #a0a8b5;
+}
+
+.comment-form button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.comment-form button:hover {
+    background: var(--primary-hover);
+}
+
+/* Lista de comentários */
+
+.comment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#empty-comments {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 28px 10px;
+    font-size: 14px;
+}
+
+/* ========================================
+   BARRA LATERAL
+======================================== */
+
+.sidebar {
+    position: sticky;
+    top: 24px;
+}
+
+.sidebar-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+    box-shadow: 0 2px 8px rgba(20, 35, 60, 0.03);
+}
+
+.sidebar-card h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+#community-description {
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 22px;
+}
+
+.community-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    border-top: 1px solid var(--border);
+    padding-top: 18px;
+}
+
+.community-stats div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.community-stats strong {
+    font-size: 19px;
+    color: var(--text);
+}
+
+.community-stats span {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 850px) {
+    .post-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: calc(100% - 24px);
+        margin: 16px auto;
+    }
+
+    .post-card,
+    .comments-card {
+        padding: 18px;
+    }
+
+    #post-title {
+        font-size: 22px;
+    }
+
+    .comments-header h2 {
+        font-size: 17px;
+    }
+}

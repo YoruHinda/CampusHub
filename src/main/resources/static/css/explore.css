@@ -1,0 +1,535 @@
+
+/* ========================================
+   CONFIGURAÇÕES GERAIS
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #3568e8;
+    --primary-hover: #2854c7;
+    --background: #f4f6fa;
+    --surface: #ffffff;
+    --border: #e7eaf0;
+    --text: #202735;
+    --secondary: #788292;
+    --radius: 12px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+button, input, select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* ========================================
+   CONTAINER
+======================================== */
+
+.container {
+    width: min(1200px, calc(100% - 40px));
+    margin: 32px auto 60px;
+}
+
+/* ========================================
+   CABEÇALHO
+======================================== */
+
+.explore-header {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 210px;
+    padding: 38px 42px;
+    margin-bottom: 25px;
+    background: linear-gradient(115deg, #315ed5, #4779ee);
+    border-radius: 14px;
+    color: white;
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+    max-width: 560px;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #dce6ff;
+    margin-bottom: 12px;
+}
+
+.header-content h1 {
+    font-size: 32px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+.header-content p {
+    color: #e5ecff;
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 490px;
+}
+
+.header-decoration {
+    position: absolute;
+    right: 70px;
+    top: -100px;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.decoration-circle {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    right: 50px;
+    bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+/* ========================================
+   PESQUISA
+======================================== */
+
+.search-section {
+    margin-bottom: 36px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    padding: 8px 10px 8px 16px;
+    box-shadow: 0 2px 8px rgba(20, 35, 60, 0.03);
+}
+
+.search-icon {
+    color: var(--secondary);
+    font-size: 25px;
+    line-height: 1;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text);
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+.search-box input::placeholder {
+    color: #a0a8b5;
+}
+
+.search-box button {
+    border: none;
+    background: var(--primary);
+    color: white;
+    border-radius: 8px;
+    padding: 11px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.search-box button:hover {
+    background: var(--primary-hover);
+}
+
+/* ========================================
+   TÍTULOS DAS SEÇÕES
+======================================== */
+
+.section-heading,
+.communities-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.section-heading h2,
+.communities-heading h2 {
+    font-size: 19px;
+    margin-bottom: 5px;
+}
+
+.section-heading p,
+.communities-heading p {
+    color: var(--secondary);
+    font-size: 13px;
+}
+
+/* ========================================
+   CATEGORIAS
+======================================== */
+
+.categories-section {
+    margin-bottom: 38px;
+}
+
+.categories-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.category-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 17px;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    background: var(--surface);
+    color: var(--secondary);
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.category-item:hover {
+    border-color: #b8c9f7;
+    color: var(--primary);
+}
+
+.category-item.active {
+    background: #edf2ff;
+    border-color: #d4e0ff;
+    color: var(--primary);
+}
+
+/* ========================================
+   COMUNIDADES
+======================================== */
+
+.communities-section {
+    margin-top: 10px;
+}
+
+.communities-heading {
+    margin-bottom: 20px;
+}
+
+.communities-heading select {
+    padding: 10px 13px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    outline: none;
+    font-size: 13px;
+}
+
+.communities-heading select:focus {
+    border-color: var(--primary);
+}
+
+.communities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+/* Card de comunidade */
+
+.community-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 21px;
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.community-card:hover {
+    border-color: #c6d4f7;
+    box-shadow: 0 5px 16px rgba(20, 35, 60, 0.06);
+    transform: translateY(-2px);
+}
+
+.community-card-header {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 16px;
+}
+
+.community-card-avatar {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: #edf2ff;
+    border: 1px solid var(--border);
+    object-fit: cover;
+}
+
+.community-card-title {
+    min-width: 0;
+}
+
+.community-card-title h3 {
+    font-size: 15px;
+    margin-bottom: 3px;
+    overflow-wrap: anywhere;
+}
+
+.community-card-title span {
+    font-size: 11px;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.community-card-description {
+    color: var(--secondary);
+    font-size: 13px;
+    line-height: 1.7;
+    min-height: 66px;
+    overflow-wrap: anywhere;
+}
+
+.community-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    margin-top: 18px;
+    padding-top: 14px;
+}
+
+.community-card-members {
+    color: var(--secondary);
+    font-size: 12px;
+}
+
+.community-card-link {
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* ========================================
+   ESTADOS
+======================================== */
+
+.empty-state {
+    text-align: center;
+    padding: 55px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.empty-icon {
+    font-size: 32px;
+    color: var(--secondary);
+    margin-bottom: 12px;
+}
+
+.empty-state h3 {
+    font-size: 16px;
+    margin-bottom: 7px;
+}
+
+.empty-state p {
+    color: var(--secondary);
+    font-size: 13px;
+}
+
+.loading-state {
+    text-align: center;
+    color: var(--secondary);
+    font-size: 13px;
+    padding: 35px;
+}
+
+/* ========================================
+   PAGINAÇÃO
+======================================== */
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.pagination button {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    padding: 9px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.pagination button:hover:not(:disabled) {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.pagination button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    font-size: 13px;
+    color: var(--secondary);
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 1000px) {
+    .communities-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .container {
+        width: calc(100% - 24px);
+        margin: 16px auto 40px;
+    }
+
+    .explore-header {
+        min-height: 190px;
+        padding: 25px;
+    }
+
+    .header-content h1 {
+        font-size: 25px;
+    }
+
+    .header-decoration {
+        right: -190px;
+    }
+
+    .search-box {
+        gap: 8px;
+    }
+
+    .search-box button {
+        padding: 10px 12px;
+    }
+
+    .communities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .communities-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .communities-heading select {
+        width: 100%;
+    }
+
+    .categories-list {
+        gap: 8px;
+    }
+
+    .category-item {
+        padding: 9px 13px;
+    }
+}
+
+/* NAVBAR CAMPUSHUB */
+
+.navbar {
+    width: 100%;
+    height: 68px;
+    background: #ffffff;
+    border-bottom: 1px solid #e7eaf0;
+}
+
+.navbar-container {
+    width: min(1200px, calc(100% - 40px));
+    height: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    text-decoration: none;
+    color: #202735;
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.navbar-brand span {
+    color: #3568e8;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: #788292;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.navbar-links a:hover {
+    color: #3568e8;
+}
+
+@media (max-width: 600px) {
+    .navbar-container {
+        width: calc(100% - 24px);
+    }
+
+    .navbar-links {
+        gap: 16px;
+    }
+}

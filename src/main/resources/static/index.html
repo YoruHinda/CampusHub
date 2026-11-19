@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusHub — Feed</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/extras.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="navbar-container">
+
+        <a href="/index.html" class="navbar-brand">
+            Campus<span>Hub</span>
+        </a>
+
+        <div class="navbar-links">
+            <a href="/index.html">Início</a>
+            <a href="/explore.html">Explorar</a>
+        </div>
+
+    </div>
+</nav>
+
+    <main class="page">
+        <section>
+            <div class="heading">
+                <h1>O que está acontecendo</h1><button class="link" onclick="openModal()">＋ Criar publicação</button>
+            </div>
+            <div class="panel">
+                <form class="compose" id="quickPostForm">
+                    <div class="avatar"></div>
+
+                    <input type="text" id="quickPostText" class="prompt"
+                        placeholder="Compartilhe uma ideia com a comunidade..." required>
+
+                    <button type="submit" class="send-button">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+                <div class="toolbar">
+                    <div class="tabs">
+                        <button class="tab active" data-filter="all">Todos</button>
+                        <button class="tab" data-filter="popular">Em destaque</button>
+                        <button class="tab" data-filter="recent">Recentes</button>
+                    </div>
+                    <select class="sort" aria-label="Ordenar publicações">
+                        <option>Mais relevantes</option>
+                        <option>Mais recentes</option>
+                    </select>
+                </div>
+                <div id="posts" class="empty-state">
+                    <div class="empty-icon">▤</div>
+                    <strong>Ainda não há publicações</strong>
+                    <p>Quando alguém publicar em uma comunidade, o conteúdo aparecerá aqui.</p>
+                </div>
+            </div>
+        </section>
+
+        <aside>
+            <div class="heading right-heading">
+                <h2>Descobrir comunidades</h2><button class="link" onclick="openCommunityModal()">＋ Nova</button>
+            </div>
+            <div class="panel right-panel" id="communityList">
+                <div class="empty-state compact">
+                    <div class="empty-icon">⌂</div>
+                    <strong>Nenhuma comunidade por enquanto</strong>
+                    <p>As comunidades disponíveis aparecerão aqui quando forem criadas.</p>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Modal: criar publicação -->
+    <div class="modal-bg" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal">
+            <div class="modal-head">
+                <h2 id="modalTitle">Criar publicação</h2><button class="close" onclick="closeModal()"
+                    aria-label="Fechar">×</button>
+            </div>
+            <form id="postForm">
+                <label for="communitySelect">Comunidade</label>
+                <select class="field" id="communitySelect" required>
+                    <option value="" disabled selected>Selecione a comunidade</option>
+                </select>
+                <label for="title">Título</label>
+                <input class="field" id="title" required maxlength="200"
+                    placeholder="Dê um título para sua publicação">
+                <label for="bodyText">Texto</label>
+                <textarea class="field" id="bodyText" required
+                    placeholder="Escreva sua dúvida, ideia ou contribuição..."></textarea>
+                <div class="modal-actions">
+                    <button type="button" class="btn secondary" onclick="closeModal()">Cancelar</button>
+                    <button type="submit" class="btn">Publicar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: criar comunidade -->
+    <div class="modal-bg" id="communityModal" role="dialog" aria-modal="true" aria-labelledby="communityModalTitle">
+        <div class="modal">
+            <div class="modal-head">
+                <h2 id="communityModalTitle">Criar comunidade</h2><button class="close" onclick="closeCommunityModal()"
+                    aria-label="Fechar">×</button>
+            </div>
+            <form id="communityForm">
+                <label for="communityNameInput">Nome</label>
+                <input class="field" id="communityNameInput" required minlength="3" maxlength="60"
+                    placeholder="Ex.: Engenharia de Software">
+                <label for="communityDescInput">Descrição</label>
+                <textarea class="field" id="communityDescInput" maxlength="500"
+                    placeholder="Sobre o que é esta comunidade?"></textarea>
+                <div class="modal-actions">
+                    <button type="button" class="btn secondary" onclick="closeCommunityModal()">Cancelar</button>
+                    <button type="submit" class="btn">Criar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/index.js"></script>
+</body>
+
+</html>
